@@ -1,4 +1,4 @@
-# TSA-Software-Development-2024-2025
+# TSA Software Development 2024-2025
 The repository was created by GSMST students for the TSA Software Development submission. Our app is known as GreenHub and assists users with getting jobs in the agriculture sector.
 
 This project was inspired from our AP Environmental Science class where we were constantly told off the issues that arose with the minimal number of people going into agricultural jobs. This issue needs to be brought to life but also needs to be fixed easier and that is where GreenHub was born.
