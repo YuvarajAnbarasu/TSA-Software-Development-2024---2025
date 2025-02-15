@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 # Set OpenAI API key as an environment variable
-client = OpenAI(api_key=os.environ.get("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"))
+client = OpenAI(api_key=os.environ.get("OPEN_API_KEY"))
 
 
 def initialize_text_gen_model(model_name="gpt-3.5-turbo"):
