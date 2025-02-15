@@ -4,7 +4,7 @@ import datetime
 from functools import wraps
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session, flash
-import text_generation  # Must be configured to generate agriculture-specific prompts
+import text_generation
 import interview_ai
 
 from flask_sqlalchemy import SQLAlchemy
@@ -24,7 +24,7 @@ users = {
     "thomas": "thomas"
 }
 
-# -------------------- Authentication Utilities -------------------- #
+# Authentication
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -34,7 +34,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# -------------------- Database Model -------------------- #
+# Databases
 class MentorRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
@@ -50,7 +50,7 @@ class MentorRequest(db.Model):
 with app.app_context():
     db.create_all()
 
-# -------------------- Authentication Routes -------------------- #
+# Authentication Routes
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -86,7 +86,7 @@ def logout():
     flash("Logged out successfully.", "success")
     return redirect(url_for("home"))
 
-# -------------------- Main Application Routes -------------------- #
+# Application Routes
 
 INTERVIEW_HISTORY = []
 
@@ -194,13 +194,11 @@ def networking_assistant():
     icebreaker_message = None
 
     if request.method == "POST":
-        # For agriculture-related networking recommendations
         if "recommendations" in request.form:
             agriculture_focus = request.form.get("agriculture_focus", "")
             connection_recommendations = text_generation.generate_connection_recommendations(
-                agriculture_focus  # Agriculture-specific focus
+                agriculture_focus  
             )
-        # For an agriculture-themed icebreaker message
         elif "icebreaker" in request.form:
             context_info = request.form.get("icebreaker_context", "")
             icebreaker_message = text_generation.generate_icebreaker_message(context_info)
@@ -319,15 +317,14 @@ def agriculture_certifications():
         }
     ]
     
-    # Handle requests for more information
     if request.method == "POST":
         user_email = request.form.get("email", "")
         flash(f"Thank you! More information on agriculture certifications will be sent to {user_email}.", "success")
-        # Here you could also store the email in a database for future outreach.
+        # Store the email in a database for future outreach.
     
     return render_template("agriculture_certifications.html", certifications=certifications)
 
-# -------------------- Main App Runner -------------------- #
+# Main App Function
 if __name__ == "__main__":
     text_generation.initialize_text_gen_model("gpt-3.5-turbo")
     interview_ai.load_interview_model()
