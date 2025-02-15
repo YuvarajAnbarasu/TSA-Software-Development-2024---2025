@@ -1,24 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Virtual Networking Assistant{% endblock %}
+{% block title %}Virtual Agriculture Networking Assistant{% endblock %}
 {% block content %}
 <div class="form-section">
-  <h2>Connection Recommendations</h2>
+  <h2>Agriculture Connection Recommendations</h2>
   <form method="POST">
-    <label for="target_company">Target Company:</label>
-    <input type="text" id="target_company" name="target_company" placeholder="Enter target company" required>
+    <label for="agriculture_focus">Agriculture Focus:</label>
+    <input type="text" id="agriculture_focus" name="agriculture_focus" placeholder="e.g., organic farming, crop management" required>
     
-    <label for="industry">Industry:</label>
-    <input type="text" id="industry" name="industry" placeholder="Enter industry" required>
+    <label for="region">Region / Specialty:</label>
+    <input type="text" id="region" name="region" placeholder="e.g., Midwest, hydroponics" required>
     
     <button type="submit" name="recommendations">Get Recommendations</button>
   </form>
 </div>
 
 <div class="form-section">
-  <h2>Icebreaker Generator</h2>
+  <h2>Agriculture Icebreaker Generator</h2>
   <form method="POST">
-    <label for="icebreaker_context">Context Information:</label>
-    <textarea id="icebreaker_context" name="icebreaker_context" rows="4" placeholder="Enter details for a personalized message" required></textarea>
+    <label for="icebreaker_context">Agriculture Context:</label>
+    <textarea id="icebreaker_context" name="icebreaker_context" rows="4" placeholder="Enter details for a personalized agriculture networking message" required></textarea>
     <button type="submit" name="icebreaker">Generate Icebreaker</button>
   </form>
 </div>
@@ -37,4 +37,3 @@
 </div>
 {% endif %}
 {% endblock %}
-    
