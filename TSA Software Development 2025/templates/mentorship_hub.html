@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Community & Mentorship Hub{% endblock %}
+{% block content %}
+<div class="form-section">
+  <h2>Mentorship Program</h2>
+  <form method="POST">
+    <label for="industry">Your Industry:</label>
+    <input type="text" id="industry" name="industry" placeholder="e.g., Technology, Finance" required>
+    
+    <label for="experience">Experience Level:</label>
+    <input type="text" id="experience" name="experience" placeholder="e.g., Entry, Mid, Senior" required>
+    
+    <button type="submit">Find a Mentor</button>
+  </form>
+</div>
+
+{% if matched_mentor %}
+<div class="result-section">
+  <h3>Mentor Match & Advice</h3>
+  <pre>{{ matched_mentor }}</pre>
+</div>
+{% endif %}
+
+<div class="result-section">
+  <h2>Groups & Forums</h2>
+  {% for group in groups %}
+  <div class="job">
+    <h3>{{ group.name }}</h3>
+    <p>{{ group.description }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

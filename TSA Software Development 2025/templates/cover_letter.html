@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Cover Letter Generator{% endblock %}
+
+{% block content %}
+<h2>Cover Letter Generator</h2>
+
+<form method="POST" class="form-section">
+  <label for="user_details">Your Details (e.g. experience, achievements):</label>
+  <textarea name="user_details" id="user_details" rows="4"></textarea>
+
+  <label for="job_desc">Job Description or Role Info:</label>
+  <textarea name="job_desc" id="job_desc" rows="4"></textarea>
+
+  <button type="submit">Generate Cover Letter</button>
+</form>
+
+{% if cover_letter_text %}
+<div class="result-section">
+  <h3>Cover Letter Draft</h3>
+  <pre>{{ cover_letter_text }}</pre>
+</div>
+{% endif %}
+{% endblock %}

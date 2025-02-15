@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}GreenHub{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <img src="static/images/Path.png" alt="Logo" class="logo">
+      <h1 class="brand-title">GreenHub</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('email_assistance') }}">Email Assistance</a></li>
+        <li><a href="{{ url_for('resume_builder') }}">Agriculture Resume Builder</a></li>
+        <li><a href="{{ url_for('cover_letter') }}">Cover Letter</a></li>
+        <li><a href="{{ url_for('interview_page') }}">Interview Assistance</a></li>
+        <li><a href="{{ url_for('networking_assistant') }}">Networking Assistant</a></li>
+        <li><a href="{{ url_for('mentorship_hub') }}">Mentorship Hub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; {{ 2025 }} Pathfinder. All rights reserved.</p>
+  </footer>
+</body>
+</html>

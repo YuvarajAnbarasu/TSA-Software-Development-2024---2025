@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Agriculture Updates - GreenHub{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <h1>Agriculture Updates</h1>
+  
+  <section>
+    <h2>Upcoming Agriculture Events</h2>
+    <div class="list-group mb-4">
+      {% for event in events %}
+        <div class="list-group-item">
+          <h3>{{ event.title }}</h3>
+          <p>
+            <strong>Date:</strong> {{ event.date }} |
+            <strong>Location:</strong> {{ event.location }}
+          </p>
+          <p>{{ event.description }}</p>
+        </div>
+      {% else %}
+        <p>No upcoming events available.</p>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <section>
+    <h2>Latest Agriculture News</h2>
+    <div class="list-group">
+      {% for item in news %}
+        <div class="list-group-item">
+          <h3>{{ item.headline }}</h3>
+          <p><strong>Date:</strong> {{ item.date }}</p>
+          <p>{{ item.summary }}</p>
+        </div>
+      {% else %}
+        <p>No news items available.</p>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

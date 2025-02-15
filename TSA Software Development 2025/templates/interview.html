@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Interview Recorder{% endblock %}
+{% block content %}
+<h2>Interview Recorder</h2>
+<div class="record-wrapper">
+  <video id="videoPreview" width="640" height="480" autoplay muted></video>
+  <div class="record-controls">
+    <button id="startBtn" class="btn">Start Recording</button>
+    <button id="stopBtn" class="btn" disabled>Stop Recording</button>
+  </div>
+</div>
+
+<form id="uploadForm" action="{{ url_for('upload_interview') }}" method="POST" enctype="multipart/form-data" style="display: none;">
+  <input type="file" name="videoFile" id="videoFile">
+</form>
+
+<script src="{{ url_for('static', filename='record.js') }}"></script>
+{% endblock %}

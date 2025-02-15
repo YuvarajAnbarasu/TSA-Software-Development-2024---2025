@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Builder{% endblock %}
+
+{% block content %}
+<h2>Resume Builder</h2>
+
+<form method="POST" class="form-section">
+  <label for="fullname">Full Name:</label>
+  <input type="text" name="fullname" id="fullname">
+
+  <label for="experience">Experience (brief):</label>
+  <textarea name="experience" id="experience" rows="4"></textarea>
+
+  <label for="skills">Skills (comma-separated):</label>
+  <input type="text" name="skills" id="skills">
+
+  <button type="submit">Generate Resume Snippet</button>
+</form>
+
+{% if suggestions %}
+<div class="result-section">
+  <h3>Suggested Resume Text</h3>
+  <pre>{{ suggestions }}</pre>
+</div>
+{% endif %}
+{% endblock %}

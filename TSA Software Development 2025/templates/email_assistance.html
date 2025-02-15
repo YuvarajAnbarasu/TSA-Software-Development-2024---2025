@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Email Assistance{% endblock %}
+
+{% block content %}
+<h2>Email Assistance</h2>
+
+<form method="POST" class="form-section">
+  <label for="context_info">Context or Details for Email:</label>
+  <textarea name="context_info" id="context_info" rows="5"></textarea>
+  <button type="submit">Generate Email Draft</button>
+</form>
+
+{% if ai_suggestion %}
+<div class="result-section">
+  <h3>AI Draft</h3>
+  <pre>{{ ai_suggestion }}</pre>
+</div>
+{% endif %}
+{% endblock %}

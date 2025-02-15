@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Interview Results{% endblock %}
+{% block content %}
+<h2>Interview Results</h2>
+{% if history %}
+  {% for item in history %}
+  <div class="result-card">
+    <strong>File:</strong> {{ item.filename }}<br>
+    <pre>{{ item.feedback }}</pre>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No interviews have been recorded yet.</p>
+{% endif %}
+{% endblock %}
