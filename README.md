@@ -3,8 +3,6 @@ The repository was created by GSMST students for the TSA Software Development su
 
 This project was inspired from our AP Environmental Science class where we were constantly told off the issues that arose with the minimal number of people going into agricultural jobs. This issue needs to be brought to life but also needs to be fixed easier and that is where GreenHub was born.
 
-We help with Agricultural Job Preparation.
-
 ## Resume Builder tailored for agriculture roles
 Cover Letter Assistance for farming, sustainability, and agribusiness jobs
 Interview Practice & AI Feedback for agriculture-related job interviews
